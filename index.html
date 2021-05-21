@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturacion Electrónica</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preload" href="css/app.css" as="style">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    
+        <header class="barra">
+            <div class="header contenedor">
+                <div class="logo">
+                    <h1>Tu<span>Logo</span></h1>
+                    <p class="slogan">Aquí va el slogan de tu empresa.</p>
+                </div>               
+            </div>
+        </header><!--.barra-->
+        <div class="barra-punta">
+            <img src="img/banner-bottom-bg.svg" alt="">
+        </div>
+    <form class="formulario" autocomplete="off">
+        <main class="contenedor">
+            <div class="cabecera">
+                <div class="contenedor-datos-empresa">
+                    <ul class="datos-empresa">
+                        <li>Nombre empresa</li>
+                        <li>Rut empresa</li>
+                        <li>razon social</li>
+                        <li>Dirección</li>
+                        <li>télefonos</li>
+                        <li>Email o web</li>
+                    </ul>
+                </div>
+                <div class="datos-factura">
+                    <p class="datos-factura__rut">Rut empresa</p>
+                    <p class="datos-factura__tipo">Factura no afecta o exenta electrónica</p>
+                    <div class="numero-factura">
+                        <p>Nº</p>
+                        <input type="text" class="numero-factura__input" name="" id="numeroFactura" value="202105001" readonly>
+                    </div>
+
+                </div>
+            </div><!--cabecera factura-->
+        
+        
+
+                <h4 class="titulo">Datos de facturación</h4>
+                <div class="info-facturacion">
+                    <div class="info-facturacion--izq">
+                        <div class="info-facturacion__campo">
+                            <label for="fechaFactura">Fecha:</label>
+                            <input type="date" id="fechaFactura">
+                        </div><!--campo-->
+                        <div class="info-facturacion__campo">
+                            <label for="nombreCliente">Cliente:</label>
+                            <input type="text" id="nombreCliente">
+                        </div><!--campo-->
+                        <div class="info-facturacion__campo">
+                            <label for="nitCliente">NIT:</label>
+                            <input type="text" id="nitCliente">
+                        </div><!--campo-->
+                        <div class="info-facturacion__campo">
+                            <label for="telefonoCliente">Teléfono:</label>
+                            <input type="number" id="telefonoCliente">
+                        </div><!--campo-->
+                    </div><!--info-facturacion--izq-->
+                    <div class="info-facturacion--der">
+                        <div class="info-facturacion__campo">
+                            <label for="direccionCliente">Dirección:</label>
+                            <input type="text" id="direccionCliente">
+                        </div><!--campo-->
+                        <div class="info-facturacion__campo">
+                            <label for="ciudadCliente">Ciudad:</label>
+                            <input type="text" id="ciudadCliente">
+                        </div><!--campo-->
+                        <div class="info-facturacion__campo">
+                            <label for="emailCliente">E-mail:</label>
+                            <input type="email" id="emailCliente">
+                        </div><!--campo-->
+                        <div class="info-facturacion__campo">
+                            <label for="tipoPago">Condiciones de pago:</label>
+                            <input type="text" id="tipoPago" placeholder="Contado o crédito">
+                        </div><!--campo-->
+                    </div><!--info-facturacion--der-->
+                </div><!--.info-facturacion-->
+                <div class="detalles-items">
+                    <h4 class="titulo">Detalle Items</h4>
+                    <ul class="lista-items">
+                        <ul class="headers item">
+                            <li>Item</li>
+                            <li>Codigo</li>
+                            <li>Descripcion</li>
+                            <li>V/Bruto</li>
+                            <li>Cant</li>
+                            <li>V/Total</li>
+                        </ul>
+                    </ul><!--lista-items-->
+                    <ul class="totales oculto">
+                        <li class="totales__campo">
+                            <label for="subTotal">Sub-Total</label>
+                            <input type="text" class="totales__input" id="subTotal" readonlyd>
+                        </li>
+                        <li class="totales__campo">
+                            <label for="iva">Iva</label>
+                            <input type="number" class="totales__input" onChange="calcularTotal()" id="iva" value="19">
+                        </li>
+                        <li class="totales__campo">
+                            <label for="neto">Neto</label>
+                            <input type="text" class="totales__input" id="neto" readonly>
+                        </li>
+                    </ul>
+                    <p class="aviso">Pulsa el boton de <span>+</span> para agregar un item</p>
+                    <div class="botones">
+                        <input type="button" value="+" class="boton boton--agregar" id="btn-agregar">
+                        <!-- <p class="boton boton--quitar" id="btn-quitar">-</p> -->
+                    </div>
+                </div><!--.detalles-items-->
+                <div class="overlay oculto">
+                    <ul class="overlay__item">
+                        <h3>Agrega los items!</h3>
+                        <li class="item__campo oculto">
+                            <label for="item">Item</label>
+                            <input type="number" class="item__input" id="item" readonly>
+                        </li>
+                        <li class="item__campo">
+                            <label for="codigo">Código</label>
+                            <input type="text" class="item__input" id="codigo">
+                        </li>
+                        <li class="item__campo">
+                            <label for="descripcion">Descripción</label>
+                            <input type="text" class="item__input" id="descripcion">
+                        </li>
+                        <li class="item__campo">
+                            <label for="valBruto">V/Bruto</label>
+                            <input type="number" class="item__input" id="valBruto" min="0" placeholder="0">
+                        </li>
+                        <li class="item__campo">
+                            <label for="cantidad">Cantidad</label>
+                            <input type="number" class="item__input" id="cantidad" min="0" placeholder="0">
+                        </li>
+                        <!-- <li class="item__campo">
+                            <label for="valTotal">V/Total</label>
+                            <input type="number" class="item__input" id="valTotal">
+                        </li> -->
+                        <li class="overlay__item--botones">
+                            <p class="boton boton--agregar" id="overlayCreate">+</p>
+                            <p class="boton boton--quitar" id="overlayClose">x</p>
+                        </li>
+                    </ul>
+                </div><!--overlay-->
+            <p class="disclaimer">
+                La presente factura de venta se asimila para todos sus efectos legales a un título
+                valor según ley 1231 de Julio de 2008. El comprador y aceptante declara haber
+                recibido real y materialmente las mercancías descritas en este título valor y se
+                obliga a pagar el precio pactado aquí mismo
+            </p>
+            <input type="submit" id="generar-factura" value="Generar factura" class="boton boton--agregar" disabled>
+        </main>        
+    </form><!--.formulario-->
+    <footer class="footer">
+        <p>Esto es solo una representación de una factura y no constituye una real. <span>&copy;Julián Solorza</span> Todos los derechos reservados 2021.</p>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>

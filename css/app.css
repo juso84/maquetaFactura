@@ -1,0 +1,563 @@
+:root{
+    --titulos: 'Poppins', sans-serif;
+    --fuentePrincipal: 'Roboto Condensed', sans-serif;
+    --blanco: #ffffff;
+    --negro: #000000;
+    --dusty: #984B43;
+    --lavendar: #6D7993;
+    --overcast: #9099A2;
+    --campos: #9099a217;
+    --camposBorde: #984c4346;
+    --paper: #D5D5D5;
+    
+}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+    font-size: 16px;
+    font-family: var(--fuentePrincipal);
+    background-color: var(--paper);
+}
+img{
+    max-width: 100%;
+}
+h1, h2, h3, h4 {
+    font-family: var(--titulos);
+    margin: 0;
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 2.4rem;
+}
+h4 {
+  font-size: 2rem;
+}
+p{
+    font-size: 2rem;
+    margin: 0;
+}
+ul {
+    padding: 0;
+    list-style: none;
+}
+.contenedor{
+      width: 95%;
+      max-width: 120rem;
+      margin: 0 auto;
+}
+@media (min-width: 468px) {
+    .contenedor{
+        width: 90%;
+  }
+}
+.titulo{
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2rem 0;
+}
+.oculto {
+    display: none;
+}
+.no-scroll{
+    overflow: hidden;
+}
+.error{
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--dusty);
+    color: var(--paper);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 5rem;
+    margin: 0;
+}
+/**HEADER **/
+  .barra{
+      background-color: var(--lavendar);
+      width: 100%;
+      height: 6rem;
+  }
+  .barra-punta{      
+      width: 100%;      
+  }/**LOGO**/
+  .logo{
+    color: var(--blanco);
+    margin: 0 auto;
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+.header{
+    position: relative;
+}
+@media (min-width: 480px) {
+  .logo{
+      top: 1.5rem;
+  }
+}
+@media (min-width: 998px) {
+  .logo{
+      top: 2rem;
+  }    
+}
+@media (min-width: 1200px) {
+    .logo{
+        top: 3rem;
+    }
+}
+.logo h1 {
+    font-weight: 200;
+}
+.logo span{
+    font-weight: 900;
+    color: #984B43;
+}
+.logo p.slogan{
+    font-size: 1.5rem;
+    margin: .2rem 0 0 0;
+    font-family: var(--titulos);
+    font-weight: 200;
+    text-align: center;
+    display: none;
+}
+@media (min-width: 468px) {
+  .logo p.slogan{
+      display: block;
+  }
+} 
+/**CABECERA FACTURA **/
+  .cabecera{
+    display: grid;
+    padding: 2rem;
+  }
+   @media (min-width: 768px) {
+    .cabecera{        
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+  }    
+  .datos-empresa{
+      margin: 0;
+      text-align: center;          
+  }
+  @media (min-width: 480px) {
+    .datos-empresa{
+        text-align: left;
+        margin: 0;
+    }
+  }
+  @media (min-width: 480px) {
+    .datos-empresa{
+        text-align: center;
+    }
+  }
+  .datos-empresa li{
+    font-weight: normal;
+    font-size: 1.8;
+}
+.datos-factura{
+    border: .2rem solid var(--dusty);
+    padding: 0 1rem;
+    text-align: center;
+    margin-top: 2rem; 
+    display: grid;
+    place-items: center;   
+}
+.datos-factura p{
+    margin: 1rem;
+}
+.numero-factura p{
+    margin-bottom: 0;
+    font-size: 3rem;
+    color: var(--dusty);
+}
+
+.numero-factura__input {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-family: var(--titulos);
+    font-size: 3rem;
+    color: var(--dusty);
+    width: 100%;
+}
+@media (min-width: 768px) {
+  .contenedor-datos-empresa{
+    display: grid;
+    place-items: center;
+  }
+}
+.datos-factura__tipo{
+    text-transform: uppercase;
+}
+.datos-factura__numero{
+    font-size: 3rem;
+    color: var(--dusty);
+}
+.datos-factura__numero span{
+    font-weight: bold;    
+}
+
+/**CAMPOS DATOS FACTURACION**/
+.info-facturacion{
+    padding: 2rem;
+}
+@media (min-width: 768px) {
+  .info-facturacion{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5rem;
+  }
+  .info-facturacion--izq {
+      padding-right: 0;
+  }
+  .info-facturacion--der {
+    padding-left: 0; 
+}
+}
+.info-facturacion--izq,
+.info-facturacion--der {
+    padding-bottom: 2rem; 
+}
+.info-facturacion__campo{
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.info-facturacion__campo:last-of-type{
+    margin-bottom:0;
+}
+@media (min-width: 998px) {
+  .info-facturacion__campo{
+      grid-template-columns: 20% 80%;
+  }
+  .info-facturacion__campo label{
+    display: grid;
+    place-content: center left;    
+}
+}
+.info-facturacion__campo input,
+.item__campo input{
+    padding: .5rem;
+    background-color: var(--campos);
+    border: none;
+    box-shadow: 0 .1rem .3rem rgba(0,0,0,.25);
+}
+textarea:focus, input:focus, input[type]:focus {
+    border-color: var(--dusty);
+    box-shadow: 0 1px 1px var(--camposBorde)inset, 0 0 8px var(--camposBorde);
+    outline: 0 none;
+}
+input:-webkit-autofill { 
+    background-color: #000 !important; 
+}
+
+input, input[type="date"]{
+    height: 5rem;
+} 
+/**TABLA DE ITEMS**/
+
+.lista-items{
+    display: grid;    
+    gap: 2rem;
+}
+p.aviso{
+    text-align: center;
+}
+p.aviso span{
+    font-weight: 700;
+    font-size: 2.5rem;
+    
+}
+ul.headers {
+    display:none;
+}
+@media (min-width: 768px) {
+  ul.headers {
+      display:grid;
+  }
+}
+.headers li{
+    background-color: var(--camposBorde);
+    padding: 1rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .lista-items{
+      gap:.5rem;
+  }
+}
+.lista-items .item{
+    padding: 1rem;
+    box-shadow: 0 0 2px rgba(0,0,0,.25);
+}
+@media (min-width: 768px) {
+    .lista-items .item{
+        padding: 0;
+        box-shadow: unset;
+    }
+}
+@media (min-width: 768px) {
+    .lista-items .item:nth-child(2n + 2) .item__input{
+        background-color: #9099a252;        
+    }
+}
+.item{
+    display: grid;
+    gap: 2rem;
+}
+@media (min-width: 480px) {
+    .item{
+        grid-template-columns: repeat(2, 1fr);        
+    }  
+}
+@media (min-width: 768px) {
+  .item{
+    grid-template-columns: 7% 10% 47% 13% 10% 13%;
+    gap: .2rem;
+  }
+}
+.item .item__campo{
+    display: grid;
+    gap: 1rem;
+} 
+@media (min-width: 480px) {     
+    .item .campo--codigo{
+        grid-column: 2/3;
+    }
+    .item .campo--descripcion{
+        grid-column: 1/3;
+    }
+    .item .campo--valTotal{
+        grid-column: 1/3;
+    }
+}
+@media (min-width: 768px) {      
+    .item__campo .item__input{
+       width: 100%;
+    }  
+    .item__campo-header{
+        display: none;
+    }
+    .item .campo--codigo{
+        grid-column: 2/3;
+    }
+    .item .campo--descripcion{
+        grid-column: 3/4;
+    }
+    .item .campo--valBruto{
+        grid-column: 4/5;
+    }
+    .item .campo--valTotal{
+        grid-column: 6/7;
+    }    
+}
+.boton{
+    width: 5rem;
+    height: 5rem;    
+    display: grid;
+    place-content: center;
+    font-size: 3.2rem;
+    color: var(--paper);
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+.boton--agregar{
+    background-color: var(--dusty);
+}
+.boton--quitar{
+    background-color: var(--lavendar);
+}
+.botones{
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+.botones .boton{
+    margin-right: 2rem;;
+}
+.botones .boton:last-of-type{
+    margin-right:0;
+}
+ul.oculto{
+    display: none;
+}
+.totales{
+    display: grid;
+    row-gap: 2rem;
+}
+@media (min-width: 768px) {
+    .totales{
+        grid-template-columns: 65% 35%;
+        gap: .5rem;
+    }
+}
+@media (min-width: 998px) {
+    .totales{
+        grid-template-columns: 75% 25%;
+        gap: .5rem;
+    }
+}
+.totales__campo{    
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    place-items: center right;    
+}
+
+.totales__campo label{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+.totales__input{
+    background-color: var(--camposBorde);
+    width: 100%;
+    border: none;
+    font-size: 2rem;
+    padding: 0 2rem;
+}
+/**OVERLAY**/
+.overlay{
+    background-color: #984c43c2;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+}
+.overlay.oculto{
+    display: none;
+}
+.overlay ul {
+    position: relative;
+    padding: 5rem 3rem;
+}
+.item__input{
+    position: relative;
+}
+.overlay label.required:after{
+    content: '*';
+   color: var(--dusty);
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.overlay__item{
+    background-color: var(--paper);
+    padding: 2rem 3rem;
+    width: 95%;        
+}
+@media (min-width: 480px) {
+    .overlay__item{
+        width: 80%;  
+    }
+}
+@media (min-width: 768px) {
+    .overlay__item{
+        width: 50%;  
+    }
+}
+@media (min-width: 998px) {
+    .overlay__item{
+        width: 40%;     
+    }
+}
+.overlay h3{
+    margin: 2rem 0;
+    text-align: center;
+}
+.overlay li.item__campo{
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+li.item__campo.oculto{
+    display: none;
+}
+.overlay__item--botones {
+    display: flex;
+    justify-content: center;
+}
+.overlay__item--botones .boton--agregar{
+    width: 100%;
+    margin: 3rem;
+}
+@media (min-width: 768px) {
+    .overlay__item--botones .boton--agregar{
+        width: 50%;
+    }
+}
+@media (min-width: 998px) {
+    .overlay__item--botones .boton--agregar{
+        width: 5rem;
+    }
+}
+.overlay__item--botones .boton--quitar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+}
+
+.disclaimer{
+    border: .2rem solid var(--lavendar);
+    padding: 3rem 1rem;
+    margin: 3rem 0;
+}
+
+.footer{
+    background-color: var(--lavendar);
+    color: var(--blanco);
+    padding: 2rem;
+}
+.footer p {
+    text-align: center;
+}
+.footer span{
+    display: block;
+    font-weight: bold;
+    font-family: var(--titulos);
+    margin: 1rem;;
+}
+
+input[type="submit"]{
+    margin: 0 auto 2rem auto;
+    display: block;
+    border: none;
+    width: auto;
+    text-transform: uppercase;
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    /* cursor: pointer; */
+}
+input[type="submit"]:hover{
+    cursor:pointer;
+}
