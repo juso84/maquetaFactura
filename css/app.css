@@ -275,6 +275,7 @@ input:-webkit-autofill {
 
 input, input[type="date"]{
     height: 5rem;
+    width: 100%;
 } 
 /**TABLA DE ITEMS**/
 
