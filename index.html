@@ -20,10 +20,7 @@
                     <p class="slogan">Aquí va el slogan de tu empresa.</p>
                 </div>               
             </div>
-        </header><!--.barra-->
-        <div class="barra-punta">
-            <img src="img/banner-bottom-bg.svg" alt="">
-        </div>
+        </header><!--.barra-->        
     <form class="formulario" autocomplete="off">
         <main class="contenedor">
             <div class="cabecera">
@@ -84,8 +81,12 @@
                             <input type="email" id="emailCliente">
                         </div><!--campo-->
                         <div class="info-facturacion__campo">
-                            <label for="tipoPago">Condiciones de pago:</label>
-                            <input type="text" id="tipoPago" placeholder="Contado o crédito">
+                            <label for="tipoPago">Pago:</label>
+                            <select class="input-select" id="tipoPago">
+                                <option value="0" selected disabled>Selecciona uno...</option>
+                                <option value="1">Contado</option>
+                                <option value="2">Crédito</option>
+                            </select>
                         </div><!--campo-->
                     </div><!--info-facturacion--der-->
                 </div><!--.info-facturacion-->

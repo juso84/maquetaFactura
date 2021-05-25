@@ -22,6 +22,7 @@ body{
     font-size: 16px;
     font-family: var(--fuentePrincipal);
     background-color: var(--paper);
+    background-color: var(--blanco);
 }
 img{
     max-width: 100%;
@@ -87,7 +88,10 @@ ul {
   .barra{
       background-color: var(--lavendar);
       width: 100%;
-      height: 6rem;
+      height: 10rem;
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 50%);
+      display: flex;
+      align-items: center;
   }
   .barra-punta{      
       width: 100%;      
@@ -98,12 +102,7 @@ ul {
     display: block;
     padding: 1rem;
     text-align: center;
-    position: absolute;
-    top: 2rem;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
+    
 }
 .header{
     position: relative;
@@ -250,7 +249,7 @@ ul {
 }
 @media (min-width: 998px) {
   .info-facturacion__campo{
-      grid-template-columns: 20% 80%;
+      grid-template-columns: 15% 85%;
   }
   .info-facturacion__campo label{
     display: grid;
@@ -258,13 +257,17 @@ ul {
 }
 }
 .info-facturacion__campo input,
-.item__campo input{
+.item__campo input,
+.input-select{
     padding: .5rem;
     background-color: var(--campos);
     border: none;
     box-shadow: 0 .1rem .3rem rgba(0,0,0,.25);
 }
-textarea:focus, input:focus, input[type]:focus {
+.input-select{
+    padding: 1.4rem 0;
+}
+textarea:focus, input:focus, input[type]:focus, .input-select:focus {
     border-color: var(--dusty);
     box-shadow: 0 1px 1px var(--camposBorde)inset, 0 0 8px var(--camposBorde);
     outline: 0 none;
